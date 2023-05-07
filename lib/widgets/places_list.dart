@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:newplaces/main.dart';
-import 'package:newplaces/screens/palce_detail.dart';
+
+import 'package:newplaces/screens/place_detail.dart';
 import '../models/place.dart';
 
 class PlacesList extends StatelessWidget {
