@@ -1,9 +1,11 @@
+import 'dart:ffi';
 import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:newplaces/providers/user_providers.dart';
 import 'package:newplaces/widgets/image_input.dart';
+import 'package:newplaces/widgets/location_input.dart';
 
 class AddPlacesScreen extends ConsumerStatefulWidget {
   const AddPlacesScreen({super.key});
@@ -54,6 +56,10 @@ class _AddPlacesScreenState extends ConsumerState<AddPlacesScreen> {
             ImageInput(
               onPickedImage: (image) => _selectedImage = image,
             ),
+            const SizedBox(
+              height: 10,
+            ),
+            const LocationInput(),
             const SizedBox(
               height: 10,
             ),
