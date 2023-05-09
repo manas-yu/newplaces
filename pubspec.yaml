@@ -35,7 +35,10 @@ dependencies:
   google_fonts: ^4.0.4
   image_picker: ^0.8.7+4
   location: ^4.4.0
+  path: ^1.8.2
+  path_provider: ^2.0.14
   riverpod: ^2.3.6
+  sqflite: ^2.2.8+2
   uuid: ^3.0.7
 
 dev_dependencies:

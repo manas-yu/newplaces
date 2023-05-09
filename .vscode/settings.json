@@ -4,6 +4,8 @@
         "ARGB",
         "newplaces",
         "riverpod",
+        "sqflite",
+        "syspath",
         "wireframe"
     ],
     "workbench.colorCustomizations": {
