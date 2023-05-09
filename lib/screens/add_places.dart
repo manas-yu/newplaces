@@ -3,7 +3,7 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:newplaces/providers/user_providers.dart';
+import 'package:newplaces/providers/user_places.dart';
 import 'package:newplaces/widgets/image_input.dart';
 import 'package:newplaces/widgets/location_input.dart';
 

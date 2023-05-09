@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:newplaces/providers/user_providers.dart';
+import 'package:newplaces/providers/user_places.dart';
 import 'package:newplaces/screens/add_places.dart';
 import 'package:newplaces/widgets/places_list.dart';
 
