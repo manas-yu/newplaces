@@ -4,11 +4,24 @@ import 'package:newplaces/providers/user_places.dart';
 import 'package:newplaces/screens/add_places.dart';
 import 'package:newplaces/widgets/places_list.dart';
 
-class PlacesScreen extends ConsumerWidget {
+class PlacesScreen extends ConsumerStatefulWidget {
   const PlacesScreen({super.key});
+  @override
+  ConsumerState<ConsumerStatefulWidget> createState() {
+    return _PlacesScreenState();
+  }
+}
+
+class _PlacesScreenState extends ConsumerState<PlacesScreen> {
+  late Future<void> _placesFuture;
+  @override
+  void initState() {
+    super.initState();
+    _placesFuture = ref.read(userPlaceProvider.notifier).loadPlaces();
+  }
 
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
+  Widget build(BuildContext context) {
     final userPlaces = ref.watch(userPlaceProvider);
     return Scaffold(
       appBar: AppBar(
@@ -28,7 +41,15 @@ class PlacesScreen extends ConsumerWidget {
       ),
       body: Padding(
         padding: const EdgeInsets.all(8.0),
-        child: PlacesList(places: userPlaces),
+        child: FutureBuilder(
+          future: _placesFuture,
+          builder: (context, snapshot) =>
+              snapshot.connectionState == ConnectionState.waiting
+                  ? const Center(
+                      child: CircularProgressIndicator(),
+                    )
+                  : PlacesList(places: userPlaces),
+        ),
       ),
     );
   }
