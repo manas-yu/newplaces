@@ -26,6 +26,13 @@ class PlacesList extends StatelessWidget {
             backgroundImage: FileImage(places[index].image),
             radius: 26,
           ),
+          subtitle: Text(
+            places[index].location.address,
+            style: Theme.of(context)
+                .textTheme
+                .bodySmall!
+                .copyWith(color: Theme.of(context).colorScheme.onBackground),
+          ),
           title: Text(
             places[index].title,
             style: Theme.of(context)

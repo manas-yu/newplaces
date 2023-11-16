@@ -32,16 +32,18 @@ class UserPlacesNotifier extends StateNotifier<List<Place>> {
               image: File(
                 row['image'] as String,
               ),
+              location: row['location'] as PlaceLocation,
             ))
         .toList();
     state = places;
   }
 
-  void addPlace(String title, File image) async {
+  void addPlace(String title, File image, PlaceLocation location) async {
     final appDir = await syspath.getApplicationDocumentsDirectory();
     final fileName = path.basename(image.path);
     final copiedImage = await image.copy('${appDir.path}/$fileName');
-    final newPlace = Place(title: title, image: copiedImage);
+    final newPlace =
+        Place(title: title, image: copiedImage, location: location);
     final db = await _getDatabase();
     db.insert(
       'user_places',
